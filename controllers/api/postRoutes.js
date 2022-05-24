@@ -25,7 +25,9 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: ['id', 'post_body', 'title', 'created_at'],
+        attributes: ['id', 'post_body', 'title', 'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
+        ],
         include: [
             {
                 model: Comment,
