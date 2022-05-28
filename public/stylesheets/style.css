@@ -98,6 +98,10 @@ form>div {
     color: var(--primary-color);
 }
 
+.post-list>article {
+    margin: 40px;
+}
+
 .post {
     margin: 20px;
 }
