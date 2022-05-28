@@ -1,15 +1,15 @@
-const postBodyEl = document.querySelector('#post-body').value;
-const postTitleEl = document.querySelector('#post-title').value;
+const postBodyEl = document.querySelector('#post-body');
+const postTitleEl = document.querySelector('#post-title');
 
 const handleNewPost = async function (event) {
     event.preventDefault();
-
-    if (postBodyEl && postTitleEl) {
+    
+    if (postBodyEl.value && postTitleEl.value) {
         const response = await fetch('api/posts', {
             method: 'post',
             body: JSON.stringify({
-                title: postTitleEl,
-                post_body: postBodyEl
+                title: postTitleEl.value,
+                post_body: postBodyEl.value
             }),
             headers: { 'Content-Type': 'application/json' }
         });
