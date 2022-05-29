@@ -1,5 +1,6 @@
 :root {
     --primary-color: #2149b6;
+    --secondary-color: #FFFFFF;
 }
 
 * {
@@ -50,6 +51,11 @@ header nav a {
     font-weight: normal;
     padding: 0;
     margin: 0;
+}
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
 }
 
 textarea,
@@ -122,10 +128,21 @@ form>div {
     text-decoration: none;
 }
 
-.post-body {
-    margin: 20px;
-    margin-bottom: 50px;
-    text-align: center;
+.post-body {  
+    margin: 50px;
+    margin-top: 20px;
+    text-align: justify;
+    text-justify: newspaper;
+}
+
+.edit-link {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 0 20px;
 }
 
 footer {
@@ -133,4 +150,11 @@ footer {
     padding: 20px;
     border-top: var(--primary-color) solid 1px;
     margin: 20px 0;
+}
+
+@media screen and (max-width: 525px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

@@ -5,11 +5,15 @@
     </h2>
     <form class="edit-post-form">
         <div>
-            <input name="post-title" type="text" value="{{post.title}}" /></br>
-            <textarea name="post-body">{{post.post_body}}</textarea>
+            <label for="post-title">Title</label></br>
+            <input type="text" id="post-title" name="post-title" value="{{post.title}}"/>
         </div>
         <div>
-            by you on {{format_date post.created_at}}
+            <label for="post-body">Post Body</label></br>
+            <textarea id="post-body" name="post-body">{{post.post_body}}</textarea>
+        </div>
+        <div>
+            Posted by you on {{format_date post.created_at}}
             |
             <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
         </div>
