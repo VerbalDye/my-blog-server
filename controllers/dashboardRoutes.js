@@ -32,9 +32,13 @@ router.get('/edit/:id', withAuth, (req, res) => {
         where: {
             id: req.params.id
         },
+        attributes: ['id', 'post_body', 'title', 'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM comment WHERE post.id = comment.post_id)'), 'comment_count']
+        ],
         include: [
             {
                 model: Comment,
+                attributes: ['id', 'comment_body', 'post_id', 'user_id', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
