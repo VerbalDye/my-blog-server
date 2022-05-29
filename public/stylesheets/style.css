@@ -145,6 +145,14 @@ form>div {
     margin: 0 20px;
 }
 
+.comment {
+    margin: 20px;
+}
+
+.comment .text {
+    margin: 5px 20px;
+}
+
 footer {
     text-align: center;
     padding: 20px;
