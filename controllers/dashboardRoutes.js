@@ -28,7 +28,37 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findAll()
-})
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [
+            {
+                model: Comment,
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'Post not found' });
+                return;
+            } else {
+                const post = dbPostData.get({ plain: true });
+                res.render('edit-post', { post })
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
