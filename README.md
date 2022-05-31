@@ -22,8 +22,8 @@
 9. Set up you .env folder to contain a DB_NAME, DB_USER, DB_PW, and SESSION_SECRET.
 10. Run `npm start` and you server is ready!
 
-    ## Deployed
-    [Click me!](https://verbaldye-blog.herokuapp.com/)
+## Deployed
+[Click me!](https://verbaldye-blog.herokuapp.com/)
 
   ## Contributing
   This project is not open to contribution.
